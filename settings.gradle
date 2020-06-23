@@ -1,0 +1,6 @@
+rootProject.name = 'cloud-skeleton'
+include 'registry'
+include 'provider'
+include 'consumer'
+include 'gateway'
+

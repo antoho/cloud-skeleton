@@ -1,0 +1,35 @@
+spring:
+  profiles:
+    # include native for debug
+    active: native
+  application:
+    name: registry
+  cloud:
+    config:
+      server:
+        prefix: /config
+        native:
+          searchLocations: file://${user.home}/config-repo/{application}, file://${user.home}/config-repo
+        git:
+          uri: ${config.git.url}
+          username: ${config.git.username}
+          password: ${config.git.password}
+          searchPaths: '{application}'
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    metadata-map:
+      # secure for config client
+      user: osufhalskjrtl
+      password: lviuhlszvaorhvlo5847
+      configPath: /config
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+
+logger:
+  level:
+    com.chuntung.cloud: info
